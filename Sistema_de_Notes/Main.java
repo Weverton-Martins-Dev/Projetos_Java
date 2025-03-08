@@ -2,6 +2,8 @@ package Sistema_de_Notes;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class Main {
@@ -10,7 +12,7 @@ public class Main {
         JFrame janela = new JFrame("Rastreador de Tarefas");
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         janela.setMaximumSize(new Dimension(420, 720));
-        janela.setMinimumSize(new Dimension(320, 620));
+        janela.setMinimumSize(new Dimension(420, 720));
         janela.setLayout(new BorderLayout()); // Definindo o layout da janela
 
         // Criação do painel principal da janela
@@ -37,10 +39,10 @@ public class Main {
     private static JPanel createTopPanel() {
         JPanel topPanel = new JPanel();
         topPanel.setBackground(new Color(18, 255, 0, 255));
-        topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
 
         // Criação dos componentes do painel
-        JButton menuMobile = createButtonImagem("/Sistema_de_Notes/Icon/Menu.png", 40, 40);
+        JButton menuMobile = createButtonImagem("/Sistema_de_Notes/Icon/Menu.png", 30, 30);
         menuMobile.setPreferredSize(new Dimension(30, 30));
         menuMobile.setMinimumSize(new Dimension(30, 30));
         menuMobile.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -50,15 +52,37 @@ public class Main {
         menuMobile.setFocusPainted(false);
 
         JLabel titleTop = new JLabel("Notes");
-        titleTop.setFont(new Font("Arial", Font.BOLD, 25));
+        titleTop.setFont(new Font("Arial", Font.BOLD, 30));
         titleTop.setToolTipText("Notes");
 
+        JButton searchTop = createButtonImagem("/Sistema_de_Notes/Icon/Search.png", 30, 30);
+        searchTop.setPreferredSize(new Dimension(30, 30));
+        searchTop.setMinimumSize(new Dimension(30, 30));
+        searchTop.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        searchTop.setToolTipText("Pesquisar Notas");
+        searchTop.setContentAreaFilled(false);
+        searchTop.setBorderPainted(false);
+        searchTop.setFocusPainted(false);
+
+        JButton settingTop = createButtonImagem("/Sistema_de_Notes/Icon/Setting.png", 30, 30);
+        settingTop.setPreferredSize(new Dimension(30, 30));
+        settingTop.setMinimumSize(new Dimension(30, 30));
+        settingTop.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        settingTop.setToolTipText("Configurações");
+        settingTop.setContentAreaFilled(false);
+        settingTop.setBorderPainted(false);
+        settingTop.setFocusPainted(false);
+
         // Adição dos componentes do painel
-        topPanel.add(Box.createHorizontalGlue());
+        topPanel.add(Box.createHorizontalStrut(20));
         topPanel.add(menuMobile);
         topPanel.add(Box.createHorizontalStrut(20));
         topPanel.add(titleTop);
         topPanel.add(Box.createHorizontalGlue());
+        topPanel.add(searchTop);
+        topPanel.add(Box.createHorizontalStrut(30));
+        topPanel.add(settingTop);
+        topPanel.add(Box.createHorizontalStrut(20));
 
         return topPanel; // Retorna o painel
     }
