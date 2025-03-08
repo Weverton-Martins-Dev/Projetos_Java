@@ -2,8 +2,6 @@ package Sistema_de_Notes;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class Main {
@@ -11,13 +9,13 @@ public class Main {
         // Criação da janela
         JFrame janela = new JFrame("Rastreador de Tarefas");
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        janela.setMaximumSize(new Dimension(420, 720));
+        janela.setMaximumSize(new Dimension(1920, 1080));
         janela.setMinimumSize(new Dimension(420, 720));
-        janela.setLayout(new BorderLayout()); // Definindo o layout da janela
+        janela.setLayout(new BoxLayout(janela.getContentPane(), BoxLayout.Y_AXIS));
 
         // Criação do painel principal da janela
         JPanel homePanel = createHomePanel();
-        janela.add(homePanel, BorderLayout.CENTER); // Adiciona o painel principal
+        janela.add(homePanel);
 
         janela.setLocationRelativeTo(null); // Centraliza a janela
         janela.setVisible(true); // Exibe a janela
@@ -25,21 +23,24 @@ public class Main {
 
     private static JPanel createHomePanel() {
         JPanel homePanel = new JPanel();
-        homePanel.setLayout(new BorderLayout());
+        homePanel.setLayout(new BoxLayout(homePanel, BoxLayout.Y_AXIS));
 
         // Criação dos paineis secundários
-        JPanel topPanel = createTopPanel();
+        JPanel navegationPanel = createTopPanel();
 
         // Adição dos paineis secundários
-        homePanel.add(topPanel, BorderLayout.NORTH); // Adiciona o painel superior
+        homePanel.add(navegationPanel);
+        homePanel.add(Box.createVerticalGlue());
 
         return homePanel; // Retorna o painel
     }
 
     private static JPanel createTopPanel() {
-        JPanel topPanel = new JPanel();
-        topPanel.setBackground(new Color(18, 255, 0, 255));
-        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
+        JPanel navegationPanel = new JPanel();
+        navegationPanel.setLayout(new BoxLayout(navegationPanel, BoxLayout.X_AXIS));
+        navegationPanel.setBackground(new Color(18, 255, 0, 255));
+        navegationPanel.setMaximumSize(new Dimension(1920, 600));
+        navegationPanel.setMinimumSize(new Dimension(420, 400));
 
         // Criação dos componentes do painel
         JButton menuMobile = createButtonImagem("/Sistema_de_Notes/Icon/Menu.png", 30, 30);
@@ -74,17 +75,17 @@ public class Main {
         settingTop.setFocusPainted(false);
 
         // Adição dos componentes do painel
-        topPanel.add(Box.createHorizontalStrut(20));
-        topPanel.add(menuMobile);
-        topPanel.add(Box.createHorizontalStrut(20));
-        topPanel.add(titleTop);
-        topPanel.add(Box.createHorizontalGlue());
-        topPanel.add(searchTop);
-        topPanel.add(Box.createHorizontalStrut(30));
-        topPanel.add(settingTop);
-        topPanel.add(Box.createHorizontalStrut(20));
+        navegationPanel.add(Box.createRigidArea(new Dimension(20, 0)));
+        navegationPanel.add(menuMobile);
+        navegationPanel.add(Box.createHorizontalStrut(20));
+        navegationPanel.add(titleTop);
+        navegationPanel.add(Box.createHorizontalGlue());
+        navegationPanel.add(searchTop);
+        navegationPanel.add(Box.createHorizontalStrut(30));
+        navegationPanel.add(settingTop);
+        navegationPanel.add(Box.createRigidArea(new Dimension(20, 0)));
 
-        return topPanel; // Retorna o painel
+        return navegationPanel; // Retorna o painel
     }
 
     private static JButton createButtonImagem(String imagePath, int width, int height) {
