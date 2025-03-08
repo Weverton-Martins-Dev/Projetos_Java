@@ -12,15 +12,15 @@ Sou um entusiasta da programação e apaixonado por tecnologia. Meu objetivo é 
 
 ### 1. **Rastreador de Tarefas**
    - **Descrição:** Um aplicativo que permite aos usuários adicionar, editar e remover tarefas. Inclui funcionalidades para marcar tarefas como concluídas e salvar em um arquivo.
-   - **Tecnologias:** Java, Swing, SQLite.
+   - **Tecnologias:** Java, Swing.
 ---
 
 ## 🌐 Tecnologias Utilizadas
 
 - **Linguagem:** Java
-- **Frameworks:** Spring Boot, JavaFX, Swing
-- **Banco de Dados:** MySQL, SQLite, PostgreSQL
-- **Ferramentas:** Maven, Git, IntelliJ IDEA
+- **Frameworks:** Swing
+- **Banco de Dados:** (Não Usado Ainda)
+- **Ferramentas:** Git, IntelliJ IDEA
 
 ---
 
