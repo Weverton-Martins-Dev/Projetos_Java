@@ -12,24 +12,7 @@ Sou um entusiasta da programação e apaixonado por tecnologia. Meu objetivo é 
 
 ### 1. **Rastreador de Tarefas**
    - **Descrição:** Um aplicativo que permite aos usuários adicionar, editar e remover tarefas. Inclui funcionalidades para marcar tarefas como concluídas e salvar em um arquivo.
-   - **Tecnologias:** Java, JavaFX (ou Swing), SQLite.
-
-### 2. **Sistema de Controle de Estoque**
-   - **Descrição:** Um sistema para gerenciar produtos em estoque, permitindo adição, remoção e atualização de informações sobre produtos.
-   - **Tecnologias:** Java, Spring Boot, MySQL.
-
-### 3. **Jogo da Velha**
-   - **Descrição:** Uma implementação do clássico jogo da velha, onde dois jogadores podem competir entre si.
-   - **Tecnologias:** Java, JavaFX (ou Swing).
-
-### 4. **API RESTful de Gerenciamento de Usuários**
-   - **Descrição:** Uma API que permite criar, ler, atualizar e excluir usuários, com autenticação básica.
-   - **Tecnologias:** Java, Spring Boot, PostgreSQL.
-
-### 5. **Aplicativo de Clima**
-   - **Descrição:** Um aplicativo que consome a API OpenWeatherMap para exibir as condições climáticas atuais de uma localização específica.
-   - **Tecnologias:** Java, JavaFX, API REST.
-
+   - **Tecnologias:** Java, Swing, SQLite.
 ---
 
 ## 🌐 Tecnologias Utilizadas
