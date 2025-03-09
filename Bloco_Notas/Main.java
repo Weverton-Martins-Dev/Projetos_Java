@@ -25,23 +25,29 @@ public class Main {
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
 
-        // Criação dos paineis secundários
-        JPanel navigationPanel = createNavegationPanel();
+        // Criação dos painéis secundários
+        JPanel navigationPanel = createNavigationPanel();
+        JPanel notesPanel = createNotesPanel();
+        JPanel newNotesPanel = createNewNotesPanel();
 
-        // Adição dos paineis à janela
+        // Adição dos painéis à janela
         contentPanel.add(Box.createRigidArea(new Dimension(10, 30)));
         contentPanel.add(navigationPanel, BorderLayout.NORTH);
+        contentPanel.add(Box.createVerticalGlue());
+        contentPanel.add(notesPanel, BorderLayout.CENTER);
+        contentPanel.add(Box.createVerticalGlue());
+        contentPanel.add(newNotesPanel, BorderLayout.SOUTH);
         contentPanel.add(Box.createRigidArea(new Dimension(10, 30)));
 
         return contentPanel;
     }
 
-    private static JPanel createNavegationPanel() {
+    private static JPanel createNavigationPanel() {
         JPanel navigationPanel = new JPanel();
         navigationPanel.setBackground(new Color(18, 255, 0));
         navigationPanel.setLayout(new BoxLayout(navigationPanel, BoxLayout.X_AXIS));
 
-        // Criação dos componentes
+        // Criação dos componentes do painel
         JButton menuButton = getImagensButtons("Bloco_Notas/Icon/Barra_menu.png", 30, 40);
         menuButton.setPreferredSize(new Dimension(30, 40));
         menuButton.setMaximumSize(new Dimension(30, 40));
@@ -65,7 +71,7 @@ public class Main {
         settingsButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         settingsButton.setToolTipText("Configurações");
 
-        // Adição dos componentes
+        // Adição dos componentes do painel
         navigationPanel.add(Box.createRigidArea(new Dimension(20, 50)));
         navigationPanel.add(menuButton);
         navigationPanel.add(Box.createRigidArea(new Dimension(20, 0)));
@@ -79,6 +85,76 @@ public class Main {
         return navigationPanel;
     }
 
+    private static JPanel createNotesPanel() {
+        JPanel notesPanel = new JPanel();
+        notesPanel.setBackground(new Color(196, 196, 196));
+        notesPanel.setLayout(new FlowLayout());
+
+        // Criação dos componentes do painel
+
+        // Adição dos componentes do painel
+        notesPanel.add(Box.createRigidArea(new Dimension(20, 50)));
+        notesPanel.add(Box.createRigidArea(new Dimension(20, 50)));
+
+        return  notesPanel;
+    }
+
+    private static JPanel createNewNotesPanel() {
+        JPanel criarNotesPanel = new JPanel();
+        criarNotesPanel.setLayout(new BoxLayout(criarNotesPanel, BoxLayout.X_AXIS));
+        criarNotesPanel.setBackground(new Color(18, 255, 0));
+
+        // Criação dos componentes do painel
+        JTextField notesLabel = new JTextField("");
+        notesLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        notesLabel.setPreferredSize(new Dimension(200, 30));
+        notesLabel.setMaximumSize(new Dimension(200, 30));
+        notesLabel.setForeground(new Color(255, 255, 255));
+        notesLabel.setBackground(new Color(18, 255, 0));
+        notesLabel.setCursor(new Cursor(Cursor.TEXT_CURSOR));
+        notesLabel.setToolTipText("Criar Uma Nota...");
+
+        JButton listaButton = getImagensButtons("Bloco_Notas/Icon/Lista.png", 30, 30);
+        listaButton.setPreferredSize(new Dimension(30, 30));
+        listaButton.setMaximumSize(new Dimension(30, 30));
+        listaButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        listaButton.setToolTipText("Adicionar Nota");
+
+        JButton canetaButton = getImagensButtons("Bloco_Notas/Icon/Caneta.png", 30, 30);
+        canetaButton.setPreferredSize(new Dimension(30, 30));
+        canetaButton.setMaximumSize(new Dimension(30, 30));
+        canetaButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        canetaButton.setToolTipText("Editar Nota");
+
+        JButton gravadorButton = getImagensButtons("Bloco_Notas/Icon/Gravado.png", 30, 30);
+        gravadorButton.setPreferredSize(new Dimension(30, 30));
+        gravadorButton.setMaximumSize(new Dimension(30, 30));
+        gravadorButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        gravadorButton.setToolTipText("Gravar Voz");
+
+        JButton cameraButton  = getImagensButtons("Bloco_Notas/Icon/Camera.png", 30, 30);
+        cameraButton.setPreferredSize(new Dimension(30, 30));
+        cameraButton.setMaximumSize(new Dimension(30, 30));
+        cameraButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        cameraButton.setToolTipText("Anexar Foto");
+
+        // Adição dos componentes do painel
+        criarNotesPanel.add(Box.createRigidArea(new Dimension(20, 50)));
+        criarNotesPanel.add(notesLabel);
+        criarNotesPanel.add(Box.createHorizontalGlue());
+        criarNotesPanel.add(listaButton);
+        criarNotesPanel.add(Box.createHorizontalGlue());
+        criarNotesPanel.add(canetaButton);
+        criarNotesPanel.add(Box.createHorizontalGlue());
+        criarNotesPanel.add(gravadorButton);
+        criarNotesPanel.add(Box.createHorizontalGlue());
+        criarNotesPanel.add(cameraButton);
+        criarNotesPanel.add(Box.createRigidArea(new Dimension(20, 50)));
+
+        return criarNotesPanel;
+    }
+
+    // Criação do método para renderizar os ícones nos botões
     private static JButton getImagensButtons(String imagePatch, int width, int height) {
         ImageIcon imageIcon = new ImageIcon(imagePatch);
         Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -86,8 +162,8 @@ public class Main {
         ImageIcon resizedIcon = new ImageIcon(image);
 
         JButton button = new JButton(resizedIcon);
-        button.setBorderPainted(false);
         button.setContentAreaFilled(false);
+        button.setBorderPainted(false);
         button.setFocusPainted(false);
 
         return button;
