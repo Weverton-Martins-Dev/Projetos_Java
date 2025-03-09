@@ -1,5 +1,5 @@
 # Projetos_Java
- # 🌟 Projetos Feitos com Java do Zero 🚀
+# 🌟 Projetos Feitos com Java do Zero 🚀
  
  Bem-vindo ao meu repositório! Aqui você encontrará uma coleção de projetos desenvolvidos em Java, todos criados do zero. Cada projeto é uma oportunidade de aprender, experimentar e aplicar conceitos de programação, design de software e melhores práticas.
  
@@ -11,7 +11,7 @@
  
  ## 📂 Projetos
  
- ### 1. **Rastreador de Tarefas**
+ ### 1. **Bloco de Notas Para Anotações**
     - **Descrição:** Um aplicativo que permite aos usuários adicionar, editar e remover tarefas. Inclui funcionalidades para marcar tarefas como concluídas e salvar em um arquivo.
     - **Tecnologias:** Java, Swing, (Sem banco de Dados)
  ---
